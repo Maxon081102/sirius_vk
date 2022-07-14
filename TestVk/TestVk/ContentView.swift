@@ -39,9 +39,6 @@ struct ContentView: View {
                 .offset(y: proFile ? -450 : 0)
                 .rotation3DEffect(Angle(degrees: proFile ? -10 : 0), axis: (x: 10, y: 0, z: 0))
                 .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    self.proFile.toggle()
-                }
             
             MenuView()
                 .offset(y: proFile ? 0 : screen.height)

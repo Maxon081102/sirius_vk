@@ -16,6 +16,9 @@ struct HomeView: View {
             VStack {
                 HStack {
                     AvatarView(proFile: $proFile )
+                        .onTapGesture {
+                            self.proFile.toggle()
+                        }
                     Spacer()
                     Text("Сервисы")
                         .font(.largeTitle)
@@ -25,6 +28,11 @@ struct HomeView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 40)
+                        .onTapGesture{
+                            if UIApplication.shared.canOpenURL(URL(string: "https://vk.com/")!){
+                                UIApplication.shared.open(URL(string: "https://vk.com/")!)
+                            }
+                        }
                 }
                 .padding(.horizontal, 30)
                 .padding(.top, 50)
