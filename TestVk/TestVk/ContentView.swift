@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var basicLinks:[String : String] = [
         "ВКонтакте": "https://vk.com/",
         "My.Games": "https://my.games/",
@@ -31,7 +32,7 @@ struct ContentView: View {
         ZStack {
             
             HomeView(proFile: $proFile, apps: $apps, basicLinks: $basicLinks)
-                .background(Color.white)
+                .background(colorScheme == .dark ? Color.black : Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 40, style: .continuous))
                 .scaleEffect(proFile ? 0.9 : 1)
                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
