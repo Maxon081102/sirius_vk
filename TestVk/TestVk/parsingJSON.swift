@@ -29,7 +29,7 @@ class Api{
         else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard error == nil,
-                let data = data
+                  let data = data
             else{ return }
             let apps = try! JSONDecoder().decode(treeJSON.self, from: data)
             DispatchQueue.main.async {
